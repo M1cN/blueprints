@@ -286,7 +286,7 @@ action:
   - alias: "Send notification"
     service: !input notify_service_1
     data:
-      title: "{{ now().strftime('%A') }} Agenda"
+      title: "{{states.sensor.dag_nl.state}} Agenda"
       message: "{{ agent.response.speech.plain.speech }}"
   - if:
       - condition: template
@@ -295,7 +295,7 @@ action:
       - alias: "Send notification"
         service: !input notify_service_2
         data:
-          title: "{{ now().strftime('%A') }} Agenda"
+          title: "{{states.sensor.dag_nl.state}} Agenda"
           message: "{{ agent.response.speech.plain.speech }}"
   - if:
       - condition: template
@@ -304,5 +304,5 @@ action:
       - alias: "Send notification"
         service: !input notify_service_3
         data:
-          title: "{{ now().strftime('%A') }} Agenda"
+          title: "{{states.sensor.dag_nl.state}} Agenda"
           message: "{{ agent.response.speech.plain.speech }}"
